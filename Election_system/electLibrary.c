@@ -24,17 +24,18 @@ void addPosition(){
 
 void registerVoter(){
     // Code to register a new voter
+struct Voter* v;
     printf("Registering a new voter...\n");
     if(voterCount >= MAX_VOTERS){
         printf("Maximum voters reached.\n");
         return;
     }
-
-    voters[voterCount].id = voterCount + 1; // Simple ID assignment
-    voters[voterCount].hasVoted = false; // Initialize vote status
+   v = voters + voterCount; // Get pointer to the next voter slot 
+   v -> id = voterCount + 1; // Simple ID assignment
+   v -> hasVoted = false; // Initialize vote status
     printf("Enter voter name: \n");
-    readLine(voters[voterCount].name, NAME_LEN);
-    printf("Voter registered successfully with ID %d.\n", voters[voterCount].id);
+    readLine(v -> name, NAME_LEN);
+    printf("Voter registered successfully with ID %d.\n", v -> id);
     voterCount++;
    
 }
