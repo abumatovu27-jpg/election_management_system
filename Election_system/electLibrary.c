@@ -54,14 +54,14 @@ void registerCandidate(){
         printf("Maximum candidates reached.\n");
         return;
     }
-
-    candidates[candidateCount].id = candidateCount + 1; // Simple ID assignment
-    candidates[candidateCount].hasVoted = false; // Initialize vote status
+    struct Candidate* v = candidates + candidateCount; // Get pointer to the next candidate slot
+    v -> id = candidateCount + 1; // Simple ID assignment
+    v -> hasVoted = false; // Initialize vote status
     printf("Enter candidate name: \n");
-    readLine(candidates[candidateCount].name, NAME_LEN);
+    readLine(v -> name, NAME_LEN);
     printf("Enter position for the candidate: \n");
-    readLine(candidates[candidateCount].position, NAME_LEN);
-    printf("Candidate registered successfully with ID %d.\n", candidates[candidateCount].id);
+    readLine(v -> position, NAME_LEN);
+    printf("Candidate registered successfully with ID %d.\n", v -> id);
     candidateCount++;
 }void searchRecord(){
     // searching for a voter or candidate record
